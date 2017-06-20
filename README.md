@@ -2,7 +2,7 @@
 
 ### Projekt Setup
 
-- [x] react
+- [x] create-react-app
 - [x] redux, store, react-redux
 - [x] material-ui
 - [x] Route, Switch
