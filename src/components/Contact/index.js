@@ -13,6 +13,7 @@ class Contact extends Component {
       message: '',
     };
   }
+  
   handleSend = () => {
     window.alert(`
       Thank you ${'*' + this.state.email + '*'} for your message!
@@ -61,8 +62,6 @@ class Contact extends Component {
           type="text"
           onChange={this.messageOnChange}
           value={this.state.message}
-
-
         />
         <br/>
         <FlatButton
@@ -72,5 +71,4 @@ class Contact extends Component {
     )
   }
 }
-
 export default Contact;
