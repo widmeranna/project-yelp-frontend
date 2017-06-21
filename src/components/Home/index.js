@@ -8,7 +8,6 @@ class Home extends Component {
     return(
       <div>
         <RestaurantList/>
-        <RaisedButton label="Default" />
       </div>
     );
   }
