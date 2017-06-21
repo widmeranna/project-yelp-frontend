@@ -81,7 +81,7 @@ class Contact extends Component {
         />
 
         <Dialog
-          title="Dialog With Actions"
+          title="THANK YOU"
           actions={actions}
           modal={false}
           open={this.state.open}
