@@ -5,6 +5,36 @@ import './index.css';
 const styles = {
   header: {
     textAlign: 'center',
+  title: {
+    cursor: 'pointer',
+  },
+  container: {
+  },
+  toolbar: {
+    backgroundColor: 'red',
+    color: 'white',
+    marginBottom: 50,
+  },
+  content: {
+    width: 960,
+    margin: 'auto',
+    paddingLeft: 15,
+    paddingRight: 15,
+  },
+  logo: {
+    paddingLeft: 20,
+    color: 'white',
+    textTransform: 'uppercase',
+    fontWeight: 'bolder',
+    fontSize: 30,
+    cursor: 'pointer',
+    textDecoration: 'none',
+  },
+  app: {
+    textDecoration: 'none',
+  },
+  buttonTextColor: {
+    color: 'white',
   }
 }
 
