@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import './index.css';
 import TextField from 'material-ui/TextField';
+import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class Contact extends Component {
 
@@ -11,23 +13,24 @@ class Contact extends Component {
     this.state = {
       email: '',
       message: '',
+      open: false,
     };
   }
-  
-  handleSend = () => {
-    window.alert(`
-      Thank you ${'*' + this.state.email + '*'} for your message!
-      We will contact you within the next 48h!
-      `);
+
+  handleOpen = () => {
+    this.setState({open: true});
     this.setState({
-        email:'',
-        message:'',
+      email: '',
+      message: ''
     })
-  }
+  };
+
+  handleClose = () => {
+    this.setState({open: false});
+  };
 
   emailOnChange = (e) => {
     const email = e.currentTarget.value;
-
     this.setState({
       email,
     });
@@ -41,6 +44,14 @@ class Contact extends Component {
   }
 
   render(){
+    const actions = [
+      <FlatButton
+        label="OK"
+        primary={true}
+        onTouchTap={this.handleClose}
+      />,
+    ];
+
     return(
       <div className="Contact-form">
         <h3>We would love to hear from you!</h3>
@@ -66,7 +77,22 @@ class Contact extends Component {
         <br/>
         <FlatButton
           label="Send"
-          onClick={this.handleSend}/>
+          onTouchTap={this.handleOpen}
+        />
+
+        <Dialog
+          title="Dialog With Actions"
+          actions={actions}
+          modal={false}
+          open={this.state.open}
+          onRequestClose={this.handleClose}
+        >
+        {
+        `Thank you ${this.state.email} for your message!
+        We will contact you within the next 48h!
+        `
+      }
+      </Dialog>
       </div>
     )
   }
