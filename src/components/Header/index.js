@@ -82,9 +82,6 @@ export default class Header extends Component {
             this.props.children
           }
         </div>
-        {
-          this.props.children
-        }
       </div>
     );
   }
