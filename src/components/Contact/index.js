@@ -4,6 +4,28 @@ import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 
 class Contact extends Component {
+
+  constructor(props){
+    super(props);
+
+    this.state = {
+      email: '',
+      message: '',
+    };
+  }
+  handleSend = () => {
+    return window.alert(`Thank you ${'*' + this.state.email + '*'} for your message! We will contact you within the next 48h!`);
+  }
+
+
+  formOnChange = (e) => {
+    const email = e.currentTarget.value;
+
+    this.setState({
+      email,
+    });
+  };
+
   render(){
     return(
       <div className="Contact-form">
@@ -12,6 +34,8 @@ class Contact extends Component {
           className="Email-input"
           type="email"
           floatingLabelText="Your email:"
+          onChange={this.formOnChange}
+          value={this.state.email}
         />
         <br/>
         <br/>
@@ -24,7 +48,9 @@ class Contact extends Component {
           type="text"
         />
         <br/>
-        <FlatButton label="Send"/>
+        <FlatButton
+          label="Send"
+          onClick={this.handleSend}/>
       </div>
     )
   }
