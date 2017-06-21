@@ -1,11 +1,7 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
-import './index.css';
 
 const appName = 'Yelp';
 const styles = {
-  header: {
-    textAlign: 'center',
   title: {
     cursor: 'pointer',
   },
@@ -117,5 +113,3 @@ export default class Header extends Component {
     );
   }
 }
-
-export default Header;
