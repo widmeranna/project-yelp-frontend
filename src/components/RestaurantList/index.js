@@ -9,6 +9,7 @@ import {
 } from 'material-ui/Table';
 import {connect} from 'react-redux';
 import './index.css';
+import city from './city.jpg'; //better to use png or svg
 
 class RestaurantList extends Component {
   render() {
@@ -48,6 +49,9 @@ class RestaurantList extends Component {
             }
           </TableBody>
         </Table>
+        <div className="img">
+          <img src={city}/>
+        </div>
 
       </div>
     )
