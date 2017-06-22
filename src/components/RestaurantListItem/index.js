@@ -11,7 +11,8 @@ const RestaurantListItem = (props) => {
 			<TableRowColumn>{restaurant.name}</TableRowColumn>
 			<TableRowColumn>{restaurant.address}</TableRowColumn>
 			<TableRowColumn>{restaurant.phone}</TableRowColumn>
-			<TableRowColumn>{restaurant.website}</TableRowColumn>
+			<TableRowColumn><a href={"http://"+restaurant.website} target="_blank" >{restaurant.website}</a></TableRowColumn>
+
 		</TableRow>
 	);
 };

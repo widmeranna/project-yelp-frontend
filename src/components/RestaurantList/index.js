@@ -26,7 +26,7 @@ const RestaurantList = ({restaurants}) => (
     <Table>
       <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
         <TableRow >
-          <TableHeaderColumn style={headerStyle} >Name</TableHeaderColumn>
+          <TableHeaderColumn style={headerStyle}>Name</TableHeaderColumn>
           <TableHeaderColumn style={headerStyle}>Address</TableHeaderColumn>
           <TableHeaderColumn style={headerStyle}>Phone</TableHeaderColumn>
           <TableHeaderColumn style={headerStyle}>Website</TableHeaderColumn>
