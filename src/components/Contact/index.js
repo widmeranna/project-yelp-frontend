@@ -58,6 +58,7 @@ class Contact extends Component {
         <TextField
           className="Email-input"
           type="email"
+          fullWidth={true}
           floatingLabelText="Your email:"
           onChange={this.emailOnChange}
           value={this.state.email}
@@ -70,6 +71,7 @@ class Contact extends Component {
           multiLine={true}
           style={{textAlign: 'left'}}
           rows={3}
+          fullWidth={true}
           type="text"
           onChange={this.messageOnChange}
           value={this.state.message}
@@ -77,6 +79,7 @@ class Contact extends Component {
         <br/>
         <FlatButton
           label="Send"
+          fullWidth={true}
           onTouchTap={this.handleOpen}
         />
 

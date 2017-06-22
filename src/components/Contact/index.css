@@ -1,6 +1,8 @@
 
 .Contact-form {
-
+  display: block;
+  margin: 120px auto;
+  width: 50%;
 }
 
 .Email-input {
@@ -8,4 +10,9 @@
 }
 
 .Message-input {
+}
+
+h3 {
+  text-align: center;
+  padding-bottom: 40px;
 }
