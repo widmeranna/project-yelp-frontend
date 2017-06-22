@@ -9,7 +9,13 @@ import {
 } from 'material-ui/Table';
 import RestaurantListItem from '../RestaurantListItem';
 import './index.css';
-import city from './city.jpg'; //better to use png or svg
+import city from './city.jpg'; //better to use png or
+
+
+const headerStyle = {
+  fontWeight:'bold',
+  fontSize: 14,
+}
 
 const RestaurantList = ({restaurants}) => (
   <div className="Home-List">
@@ -22,12 +28,12 @@ const RestaurantList = ({restaurants}) => (
     </div>
     <Table>
       <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
-        <TableRow>
-          <TableHeaderColumn>Name</TableHeaderColumn>
-            <TableHeaderColumn>Address</TableHeaderColumn>
-            <TableHeaderColumn>Phone</TableHeaderColumn>
-            <TableHeaderColumn>Website</TableHeaderColumn>
-          </TableRow>
+        <TableRow >
+          <TableHeaderColumn style={headerStyle} >Name</TableHeaderColumn>
+          <TableHeaderColumn style={headerStyle}>Address</TableHeaderColumn>
+          <TableHeaderColumn style={headerStyle}>Phone</TableHeaderColumn>
+          <TableHeaderColumn style={headerStyle}>Website</TableHeaderColumn>
+        </TableRow>
       </TableHeader>
       <TableBody displayRowCheckbox={false}>
         {
