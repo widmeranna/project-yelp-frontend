@@ -11,6 +11,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import RestaurantDetailPage from './components/RestaurantDetailPage';
 
 injectTapEventPlugin();
 
@@ -23,6 +24,7 @@ ReactDOM.render(
             <Route exact path="/" component={ Home } />
             <Route exact path="/about" component={ About } />
             <Route exact path="/contact" component={ Contact }/>
+            <Route exact path="/restaurants/:id" component={ RestaurantDetailPage }/>
           </Header>
         </MuiThemeProvider>
       </Switch>
