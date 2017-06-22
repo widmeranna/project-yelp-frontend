@@ -4,8 +4,7 @@ import {
   TableRowColumn,
 } from 'material-ui/Table';
 
-const RestaurantItem = (props) => {
-	const {restaurant} = props;
+const RestaurantItem = ({restaurant}) => {
 	return(
 		<TableRow>
 			<TableRowColumn>{restaurant.name}</TableRowColumn>
