@@ -1,25 +1,26 @@
-const initialState = [
-  {
-    id: 1,
-    name: 'LillyJo',
-    address: 'Schiffbaustrasse 16',
-    phone: '043 555 22 11',
-    website: 'www.lillyjo.com',
-  },
-  {
-    id: 2,
-    name: 'Nanu',
-    address: 'Förlibuckstrasse 40',
-    phone: '043 555 22 33',
-    website: 'www.nanu.com',
-  },
-];
+const initialState = {
+	1: {
+		id: 1,
+		name: 'Lilly Jo',
+		address: 'Bahnhofstrasse 100',
+		phone: '044 555 44 33',
+		website: 'www.sbb.ch',
+		img: 'https://lh3.googleusercontent.com/-Kn8cF0VandU/VhyyNpp6pxI/AAAAAAAAABM/tMezVGYwqn0/w1664-h1664/profilbild_lilly-jo_400x400.jpg',
+		map: 'map',
+	},
+	2: {
+		id: 2,
+		name: 'Crazy Burger',
+		address: 'Schiffbaustrasse 12',
+		phone: '044 555 44 33',
+		website: 'www.google.ch',
+		img: 'https://lh3.googleusercontent.com/-Kn8cF0VandU/VhyyNpp6pxI/AAAAAAAAABM/tMezVGYwqn0/w1664-h1664/profilbild_lilly-jo_400x400.jpg',
+		map: 'map',
+	},
+};
 
-// fill store with restaurants:
-const restaurants = (state = initialState, action) => {
-  return state;
-}
-
-
+const restaurants = (state=initialState, action) => {
+	return state;
+};
 
 export default restaurants;

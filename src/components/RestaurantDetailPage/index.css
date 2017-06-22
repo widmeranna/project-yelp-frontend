@@ -1,0 +1,13 @@
+.restaurantDetailPage {
+	display: flex;
+	height: 100%;
+	flex: 1;
+}
+
+.info {
+	width: 30%;
+}
+
+.reviews {
+	width: 70%;
+}
