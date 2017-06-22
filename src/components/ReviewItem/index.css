@@ -1,0 +1,15 @@
+.reviewItem {
+	display: flex;
+	border-top: 1px solid lightgray;
+}
+ .reviewItem:last-child {
+	border-bottom: 1px solid lightgray;
+ }
+
+.reviewName {
+	width: 30%;
+}
+
+.reviewContent {
+	width: 70%;
+}
