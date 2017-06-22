@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import Home from './components/Home';
 import About from './components/About';
+import Contact from './components/Contact';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
@@ -22,6 +23,7 @@ ReactDOM.render(
           <Header>
             <Route exact path="/" component={ Home } />
             <Route exact path="/about" component={ About } />
+            <Route exact path="/contact" component={ Contact }/>
           </Header>
         </MuiThemeProvider>
       </Switch>
