@@ -1,7 +1,9 @@
 .descr-restaurant-list {
-  border: 5px solid black;
+  border: 2px solid #ffe066;
+  padding: 20px 20px 20px 20px;
+  background-color: #fff5e6;
 }
 
-h2 {
+h3 {
   color: red;
 }
