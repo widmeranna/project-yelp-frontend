@@ -1,6 +1,7 @@
 .descr-restaurant-list {
   border: 2px solid #ffe066;
   padding: 20px 20px 20px 20px;
+  margin-bottom: 50px;
   background-color: #fff5e6;
 }
 
@@ -10,6 +11,7 @@ h3 {
 
 .img {
   display: block;
-  margin: 0 auto;
+  margin: 50px auto;
   width: 50%;
+  opacity: 0.6;
 }
