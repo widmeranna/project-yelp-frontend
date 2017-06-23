@@ -1,6 +1,5 @@
 import React from 'react';
 import './index.css';
-import { Rating } from 'material-ui-rating';
 
 const ReviewItem = (props) => {
 	const {review} = props;
@@ -12,11 +11,7 @@ const ReviewItem = (props) => {
 				<p>{review.date}</p>
 			</div>
 			<div className="reviewContent">
-				<Rating
-          value={review.rating}
-          max={5}
-          onChange={(value) => console.log(`Rated with value ${value}`)}
-        />
+				<p>{review.rating}</p>
 				<p>{review.text}</p>
 			</div>
 		</div>

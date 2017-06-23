@@ -3,29 +3,18 @@ import {connect} from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
 import './index.css';
 import Reviews from '../Reviews';
-import { Rating } from 'material-ui-rating'
 
 class RestaurantDetailPage extends Component {
 	render(){
 		const {restaurant} = this.props;
-		const {reviews} = this.props;
 
 		return(
 			<div className="restaurantDetailPage">
 				<div className="info">
 					<img src={restaurant.img} alt={restaurant.name} height="150"/>
 					<p>{restaurant.name}</p>
-					<Rating
-	          value={4}
-	          max={5}
-	          onChange={(value) => console.log(`Rated with value ${value}`)}
-	        />
-					{
-						//console.log(Object.values(reviews).length)}
-						//console.log(reviews)}
-						//
-					}
-					<p>{Object.values(reviews).length} Reviews</p>
+					<p>* * * * *</p>
+					<p>689 Reviews</p>
 					<p>{restaurant.address}</p>
 					<p>{restaurant.phone}</p>
 					<p>{restaurant.website}</p>
@@ -45,7 +34,6 @@ const mapStateToProps = (state, props) => {
 
 	return {
 		restaurant: state.restaurants[id],
-		reviews: state.reviews,
 	};
 };
 export default connect(mapStateToProps)(RestaurantDetailPage);
