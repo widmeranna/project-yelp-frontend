@@ -2,15 +2,17 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import NewReviewComponent from '../../containers/NewReview';
 
+
 class NewReview extends Component {
 	render(){
-
-		console.log(this.props);
-
 		return(
-			<NewReviewComponent />
+			<NewReviewComponent back={this.props.back} />
 		);
 	}
 }
 
-export default connect()(NewReview);
+const mapStateToProps = (state, props) => ({
+	back: props.history.goBack,
+});
+
+export default connect(mapStateToProps)(NewReview);
