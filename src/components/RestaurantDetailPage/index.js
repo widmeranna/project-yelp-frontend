@@ -8,6 +8,7 @@ import { Rating } from 'material-ui-rating'
 class RestaurantDetailPage extends Component {
 	render(){
 		const {restaurant} = this.props;
+		const {reviews} = this.props;
 
 		return(
 			<div className="restaurantDetailPage">
@@ -19,7 +20,12 @@ class RestaurantDetailPage extends Component {
 	          max={5}
 	          onChange={(value) => console.log(`Rated with value ${value}`)}
 	        />
-					<p>689 reviews</p>
+					{
+						//console.log(Object.values(reviews).length)}
+						//console.log(reviews)}
+						//
+					}
+					<p>{Object.values(reviews).length} Reviews</p>
 					<p>{restaurant.address}</p>
 					<p>{restaurant.phone}</p>
 					<p>{restaurant.website}</p>
@@ -39,6 +45,7 @@ const mapStateToProps = (state, props) => {
 
 	return {
 		restaurant: state.restaurants[id],
+		reviews: state.reviews,
 	};
 };
 export default connect(mapStateToProps)(RestaurantDetailPage);
