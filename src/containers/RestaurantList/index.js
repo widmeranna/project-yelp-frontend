@@ -7,7 +7,7 @@ import {
   TableHeaderColumn,
   TableRow,
 } from 'material-ui/Table';
-import RestaurantListItem from '../RestaurantListItem';
+import RestaurantListItem from '../../components/RestaurantListItem';
 import './index.css';
 import city from './city.jpg'; //better to use png or svg
 

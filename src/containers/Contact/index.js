@@ -3,7 +3,6 @@ import './index.css';
 import TextField from 'material-ui/TextField';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
 
 class Contact extends Component {
 
@@ -19,14 +18,15 @@ class Contact extends Component {
 
   handleOpen = () => {
     this.setState({open: true});
-    this.setState({
-      email: '',
-      message: ''
-    })
   };
 
   handleClose = () => {
     this.setState({open: false});
+
+    this.setState({
+      email: '',
+      message: ''
+    });
   };
 
   emailOnChange = (e) => {
@@ -58,6 +58,7 @@ class Contact extends Component {
         <TextField
           className="Email-input"
           type="email"
+          fullWidth={true}
           floatingLabelText="Your email:"
           onChange={this.emailOnChange}
           value={this.state.email}
@@ -70,6 +71,7 @@ class Contact extends Component {
           multiLine={true}
           style={{textAlign: 'left'}}
           rows={3}
+          fullWidth={true}
           type="text"
           onChange={this.messageOnChange}
           value={this.state.message}
@@ -77,6 +79,7 @@ class Contact extends Component {
         <br/>
         <FlatButton
           label="Send"
+          fullWidth={true}
           onTouchTap={this.handleOpen}
         />
 
@@ -88,10 +91,10 @@ class Contact extends Component {
           onRequestClose={this.handleClose}
         >
         {
-        `Thank you ${this.state.email} for your message!
-        We will contact you within the next 48h!
-        `
-      }
+          `Thank you ${this.state.email} for your message!
+          We will contact you within the next 48h!
+          `
+        }
       </Dialog>
       </div>
     )
