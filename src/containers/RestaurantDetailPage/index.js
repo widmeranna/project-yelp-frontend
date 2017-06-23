@@ -20,6 +20,14 @@ const styles = {
 		color: 'white',
 		fontSize: 13,
 	},
+	info: {
+		paddingLeft: 15,
+		paddingRight: 15,
+	},
+	content: {
+		paddingLeft: 15,
+		paddingRight: 15,
+	},
 };
 const Marker = ({ text }) => <div style={styles.marker}><span style={styles.span}>{text}</span></div>;
 
@@ -36,20 +44,26 @@ class RestaurantDetailPage extends Component {
 
 		return(
 			<div className="restaurantDetailPage">
-				<div className="info">
-					<img src={restaurant.img} alt={restaurant.name} height="150"/>
-					<p>{restaurant.name}</p>
+				<div className="info" style={styles.info}>
+					<img src={restaurant.img} alt={restaurant.name} width="100%"/>
+					<p><strong>{restaurant.name}</strong></p>
 					<Rating
 	          value={calcAverageRating(Object.values(reviews))}
 	          max={5}
 						readOnly={true}
 	        />
 					<p>{reviewsSize} reviews</p>
-					<p>{restaurant.address}</p>
+					<p>{restaurant.address}, {restaurant.plz} {restaurant.city}</p>
 					<p>{restaurant.phone}</p>
 					<p><Link to={'http://' + restaurant.website}>{restaurant.website}</Link></p>
-					<RaisedButton label="Write a Review"></RaisedButton>
-
+					<RaisedButton
+						label="Write a Review"
+						backgroundColor="red"
+						fullWidth={true}
+						labelColor="white"
+					/>
+					<br />
+					<br />
 					<GoogleMapReact
 						defaultZoom={14}
 						defaultCenter={center}
@@ -62,7 +76,7 @@ class RestaurantDetailPage extends Component {
 					</GoogleMapReact>
 
 				</div>
-				<div className="reviews">
+				<div className="reviews" style={styles.content}>
 					<Reviews restaurant={restaurant} />
 				</div>
 			</div>
