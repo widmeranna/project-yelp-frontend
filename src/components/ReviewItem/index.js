@@ -1,9 +1,7 @@
 import React from 'react';
 import './index.css';
 
-const ReviewItem = (props) => {
-	const {review} = props;
-
+const ReviewItem = ({review}) => {
 	return (
 		<div className="reviewItem">
 			<div className="reviewName">
