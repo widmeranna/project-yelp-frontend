@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.css';
+import { Rating } from 'material-ui-rating';
 
 const ReviewItem = ({review}) => {
 	return (
@@ -9,7 +10,11 @@ const ReviewItem = ({review}) => {
 				<p>{review.date}</p>
 			</div>
 			<div className="reviewContent">
-				<p>{review.rating}</p>
+				<Rating
+					value={review.rating}
+					max={5}
+					readOnly={true}
+				/>
 				<p>{review.text}</p>
 			</div>
 		</div>
