@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import ReviewItem from '../ReviewItem';
+import ReviewItem from '../../components/ReviewItem';
 
 class Reviews extends Component {
 	render(){
