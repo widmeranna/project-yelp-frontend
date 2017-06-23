@@ -11,23 +11,26 @@ import RestaurantListItem from '../../components/RestaurantListItem';
 import './index.css';
 import city from './city.jpg'; //better to use png or svg
 
+
+const headerStyle = {
+  fontWeight:'bold',
+  fontSize: 14,
+}
+
 const RestaurantList = ({restaurants}) => (
   <div className="Home-List">
     <div className="descr-restaurant-list">
       <h3>Yelpdemo is the best way to find reviews on local restaurants.</h3>
-      <p>
-        Explore the favorite diners pastry shops and eateries in your community.
-        <br />Leave reviews and ratings for your fellow foodies.
-      </p>
+      <p>Explore the favorite diners pastry shops and eateries in your community. Leave reviews and ratings for your fellow foodies.</p>
     </div>
     <Table>
       <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
-        <TableRow>
-          <TableHeaderColumn>Name</TableHeaderColumn>
-            <TableHeaderColumn>Address</TableHeaderColumn>
-            <TableHeaderColumn>Phone</TableHeaderColumn>
-            <TableHeaderColumn>Website</TableHeaderColumn>
-          </TableRow>
+        <TableRow >
+          <TableHeaderColumn style={headerStyle}>Name</TableHeaderColumn>
+          <TableHeaderColumn style={headerStyle}>Address</TableHeaderColumn>
+          <TableHeaderColumn style={headerStyle}>Phone</TableHeaderColumn>
+          <TableHeaderColumn style={headerStyle}>Website</TableHeaderColumn>
+        </TableRow>
       </TableHeader>
       <TableBody displayRowCheckbox={false}>
         {
