@@ -1,16 +1,10 @@
-import React, {Component} from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
-import { connect } from 'react-redux';
-import RestaurantList from '../RestaurantList';
+import React from 'react';
+import RestaurantList from '../../containers/RestaurantList';
 
-class Home extends Component {
-  render(){
-    return(
-      <div>
-        <RestaurantList/>
-      </div>
-    );
-  }
-}
+const Home = () => (
+  <div className="Home">
+    <RestaurantList />
+  </div>
+);
 
-export default connect()(Home);
+export default Home;
