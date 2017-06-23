@@ -13,7 +13,6 @@ const styles = {
 		backgroundColor: 'red',
 	}
 };
-
 const Marker = ({ text }) => <div style={styles.marker}>{text}</div>;
 
 
@@ -22,15 +21,9 @@ class RestaurantDetailPage extends Component {
 		const {restaurant} = this.props;
 		const {reviews} = this.props;
 		const reviewsSize = Object.keys(reviews).length;
-
-
 		const center = {
 			lat: restaurant.lat,
 			lng: restaurant.lon,
-		};
-		const size = {
-			width: 250,
-			height: 350,
 		};
 
 		return(
@@ -41,7 +34,6 @@ class RestaurantDetailPage extends Component {
 					<Rating
 	          value={calcAverageRating(Object.values(reviews))}
 	          max={5}
-	          // onChange={(value) => console.log(`Rated with value ${value}`)}
 						readOnly={true}
 	        />
 					<p>{reviewsSize} reviews</p>
