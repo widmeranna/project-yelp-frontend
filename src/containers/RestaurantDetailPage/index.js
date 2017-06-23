@@ -4,6 +4,9 @@ import RaisedButton from 'material-ui/RaisedButton';
 import './index.css';
 import Reviews from '../Reviews';
 import GoogleMapReact from 'google-map-react';
+import { Rating } from 'material-ui-rating';
+import { calcAverageRating } from '../../utils';
+import { Link } from 'react-router-dom';
 
 const styles = {
 	marker: {
@@ -11,11 +14,14 @@ const styles = {
 		backgroundColor: 'red',
 	}
 };
+
 const Marker = ({ text }) => <div style={styles.marker}>{text}</div>;
+
 
 class RestaurantDetailPage extends Component {
 	render(){
 		const {restaurant} = this.props;
+
 		const center = {
 			lat: restaurant.lat,
 			lng: restaurant.lon,
@@ -25,16 +31,24 @@ class RestaurantDetailPage extends Component {
 			height: 350,
 		};
 
+		const {reviews} = this.props;
+		const reviewsSize = Object.keys(reviews).length;
+
 		return(
 			<div className="restaurantDetailPage">
 				<div className="info">
 					<img src={restaurant.img} alt={restaurant.name} height="150"/>
 					<p>{restaurant.name}</p>
-					<p>* * * * *</p>
-					<p>689 reviews</p>
+					<Rating
+	          value={calcAverageRating(Object.values(reviews))}
+	          max={5}
+	          // onChange={(value) => console.log(`Rated with value ${value}`)}
+						readOnly={true}
+	        />
+					<p>{reviewsSize} reviews</p>
 					<p>{restaurant.address}</p>
 					<p>{restaurant.phone}</p>
-					<p>{restaurant.website}</p>
+					<p><Link to={'http://' + restaurant.website}>{restaurant.website}</Link></p>
 					<RaisedButton label="Write a Review"></RaisedButton>
 
 					<GoogleMapReact
@@ -62,6 +76,7 @@ const mapStateToProps = (state, props) => {
 
 	return {
 		restaurant: state.restaurants[id],
+		reviews: state.reviews,
 	};
 };
 export default connect(mapStateToProps)(RestaurantDetailPage);
