@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import RestaurantList from '../../components/RestaurantList';
+import RestaurantList from '../../containers/RestaurantList';
 
 class Search extends Component {
 	constructor(props){
