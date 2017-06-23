@@ -41,7 +41,7 @@ const RestaurantList = ({restaurants}) => (
       </TableBody>
     </Table>
     <div className="img">
-      <img src={city}/>
+      <img src={city} alt="Skyline" />
     </div>
   </div>
 );
