@@ -9,11 +9,19 @@ import { Link } from 'react-router-dom';
 
 const styles = {
 	marker: {
-		textAlign: 'center',
 		backgroundColor: 'red',
-	}
+		height: 40,
+		width: 40,
+		padding: 10,
+		borderRadius: 35,
+		textAlign: 'center',
+	},
+	span: {
+		color: 'white',
+		fontSize: 13,
+	},
 };
-const Marker = ({ text }) => <div style={styles.marker}>{text}</div>;
+const Marker = ({ text }) => <div style={styles.marker}><span style={styles.span}>{text}</span></div>;
 
 
 class RestaurantDetailPage extends Component {
