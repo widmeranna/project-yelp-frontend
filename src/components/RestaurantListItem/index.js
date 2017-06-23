@@ -12,7 +12,7 @@ const RestaurantListItem = (props) => {
 			<TableRowColumn><Link to={'restaurants/' + restaurant.id}>{restaurant.name}</Link></TableRowColumn>
 			<TableRowColumn>{restaurant.address}</TableRowColumn>
 			<TableRowColumn>{restaurant.phone}</TableRowColumn>
-			<TableRowColumn><a href={"http://"+restaurant.website} target="_blank" >{restaurant.website}</a></TableRowColumn>
+			<TableRowColumn><a href={"http://"+restaurant.website} target="_blank" rel="noopener noreferrer">{restaurant.website}</a></TableRowColumn>
 
 		</TableRow>
 	);
