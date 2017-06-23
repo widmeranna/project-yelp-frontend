@@ -9,7 +9,7 @@ import {
 } from 'material-ui/Table';
 import RestaurantListItem from '../RestaurantListItem';
 import './index.css';
-import city from './city.jpg'; //better to use png or
+import city from './city.jpg'; //better to use png or svg
 
 
 const headerStyle = {
