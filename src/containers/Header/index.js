@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import FlatButton from 'material-ui/FlatButton';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import {Toolbar, ToolbarGroup, ToolbarTitle} from 'material-ui/Toolbar';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import { connect } from 'react-redux';
+import qs from 'query-string';
+
 
 const appName = 'Yelp';
 const styles = {
@@ -58,7 +61,7 @@ const Logged = () => {
   );
 };
 
-export default class Header extends Component {
+class Header extends Component {
   constructor(props) {
     super(props);
 
@@ -68,7 +71,7 @@ export default class Header extends Component {
     };
   }
 
-  handleSearchBoxObChange = (e) => {
+  handleSearchBoxOnChange = (e) => {
     const searchText = e.currentTarget.value;
 
     this.setState({
@@ -78,7 +81,11 @@ export default class Header extends Component {
   };
 
   handleButtonOnClick = () => {
-    console.log('button clicked');
+    // 1. params
+    // routing
+    // redirect to url/restaurants/search?=searchText
+
+    this.props.history.push({pathname: '/search', search: qs.stringify({query: this.state.searchText})});
   };
 
   render(){
@@ -94,7 +101,7 @@ export default class Header extends Component {
           <ToolbarGroup>
             <TextField
               hintText="Find Restaurants"
-              onChange={this.handleSearchBoxObChange}
+              onChange={this.handleSearchBoxOnChange}
               value={this.state.searchText}
               type="input"
               underlineStyle={{borderColor: 'white'}}
@@ -118,3 +125,9 @@ export default class Header extends Component {
     );
   }
 }
+
+const maptStateToProps = (state) => ({
+  restaurants: state.restaurants,
+});
+
+export default connect(maptStateToProps)(withRouter(Header));

@@ -1,5 +1,5 @@
 import React from 'react';
-import RestaurantList from '../RestaurantList';
+import RestaurantList from '../../containers/RestaurantList';
 
 const Home = () => (
   <div className="Home">
