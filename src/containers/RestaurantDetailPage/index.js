@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
 import './index.css';
 import Reviews from '../Reviews';
@@ -21,6 +20,9 @@ const Marker = ({ text }) => <div style={styles.marker}>{text}</div>;
 class RestaurantDetailPage extends Component {
 	render(){
 		const {restaurant} = this.props;
+		const {reviews} = this.props;
+		const reviewsSize = Object.keys(reviews).length;
+
 
 		const center = {
 			lat: restaurant.lat,
@@ -30,9 +32,6 @@ class RestaurantDetailPage extends Component {
 			width: 250,
 			height: 350,
 		};
-
-		const {reviews} = this.props;
-		const reviewsSize = Object.keys(reviews).length;
 
 		return(
 			<div className="restaurantDetailPage">
@@ -71,12 +70,4 @@ class RestaurantDetailPage extends Component {
 	}
 }
 
-const mapStateToProps = (state, props) => {
-	const id = props.match.params.id;
-
-	return {
-		restaurant: state.restaurants[id],
-		reviews: state.reviews,
-	};
-};
-export default connect(mapStateToProps)(RestaurantDetailPage);
+export default RestaurantDetailPage;
