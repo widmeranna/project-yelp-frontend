@@ -56,12 +56,16 @@ class RestaurantDetailPage extends Component {
 					<p>{restaurant.address}, {restaurant.plz} {restaurant.city}</p>
 					<p>{restaurant.phone}</p>
 					<p><Link to={'http://' + restaurant.website}>{restaurant.website}</Link></p>
-					<RaisedButton
-						label="Write a Review"
-						backgroundColor="red"
-						fullWidth={true}
-						labelColor="white"
-					/>
+
+					<Link to={'/restaurants/' + restaurant.id + '/review/new'} >
+						<RaisedButton
+							label="Write a Review"
+							backgroundColor="red"
+							fullWidth={true}
+							labelColor="white"
+						/>
+					</Link>
+
 					<br />
 					<br />
 					<GoogleMapReact
