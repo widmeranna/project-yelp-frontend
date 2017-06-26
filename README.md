@@ -9,8 +9,10 @@
 - [x] structured the project into components & containers
 - [x] redux-thunk (middleware)
 
+
+<hr>
 <div>
   <sup>
-    made by <a href="https://github.com/widmerann">@widmeranna</a> and <a href="https://github.com/satuk">@satuk</a>
+    made by <a href="https://github.com/widmeranna">@widmeranna</a> and <a href="https://github.com/satuk">@satuk</a>
   </sup>
 </div>
