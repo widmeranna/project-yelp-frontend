@@ -1,6 +1,6 @@
 import {
 	ADD_REVIEW,
-} from '../constans';
+} from '../constants';
 
 export const addReview = (review) => ({
 	type: ADD_REVIEW,
