@@ -10,7 +10,7 @@ import RestaurantDetailPage from './routes/RestaurantDetailPage';
 import Header from './containers/Header';
 import About from './routes/About';
 import Contact from './routes/Contact';
-
+import NewReview from './routes/NewReview';
 import Search from './routes/Search';
 import Home from './routes/Home';
 import store from './store';
@@ -29,6 +29,7 @@ ReactDOM.render(
           <Route exact path="/contact" component={ Contact }/>
           <Route exact path="/restaurants/:id" component={ RestaurantDetailPage }/>
           <Route exact path="/search" component={ Search } />
+          <Route exact path="/restaurants/:id/review/new" component={ NewReview } />
           <Route exact path="/users/sign_in" component={ SignIn } />
         </Header>
       </Switch>
