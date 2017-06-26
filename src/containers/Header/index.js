@@ -67,7 +67,7 @@ class Header extends Component {
 
     this.state = {
       searchText: '',
-      logged: true,
+      logged: false,
     };
   }
 

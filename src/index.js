@@ -14,6 +14,7 @@ import Contact from './routes/Contact';
 import Search from './routes/Search';
 import Home from './routes/Home';
 import store from './store';
+import SignIn from './routes/SignIn';
 
 injectTapEventPlugin();
 
@@ -28,6 +29,7 @@ ReactDOM.render(
           <Route exact path="/contact" component={ Contact }/>
           <Route exact path="/restaurants/:id" component={ RestaurantDetailPage }/>
           <Route exact path="/search" component={ Search } />
+          <Route exact path="/users/sign_in" component={ SignIn } />
         </Header>
       </Switch>
     </Router>
