@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import './index.css';
+import { Checkbox } from 'material-ui';
+import UnCheckedIcon from 'material-ui/svg-icons/toggle/check-box-outline-blank';
+import CheckedIcon from 'material-ui/svg-icons/toggle/check-box';
 
 
 class SignIn extends Component {
@@ -21,16 +24,17 @@ class SignIn extends Component {
           type="password"
           fullWidth={true}
         />
+      <Checkbox
+        uncheckedIcon={<UnCheckedIcon style={{fill: "#00bcd4"}} />}
+        checkedIcon={<CheckedIcon style={{fill: "	#00bcd4"}} />}
+        label="Remember me"/>
         <br/>
-        <input
-          type="checkbox"
-          label="Remember me"
-        />
         <RaisedButton
           primary={true}
           label="Sign in"
         />
-
+        <p>Sign up</p>
+        <p>Forgot your password?</p>
       </div>
     );
   }
