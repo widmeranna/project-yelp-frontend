@@ -8,3 +8,9 @@
 .Password-Input{
   margin-bottom: 20px;
 }
+
+p {
+  margin-top: 20px;
+  color: #00bcd4;
+  font-size: 12px;
+}
