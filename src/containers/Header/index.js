@@ -6,6 +6,7 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import { connect } from 'react-redux';
 import qs from 'query-string';
+import { userLogout } from '../../store/actions/index'
 
 
 const appName = 'Yelp';
@@ -43,23 +44,7 @@ const styles = {
   }
 }
 
-const Login = () => {
-  return(
-    <div>
-      <Link to="/sign-in"><FlatButton style={styles.buttonTextColor} label="Sign In" /></Link>
-      <Link to="/sign-up"><FlatButton style={styles.buttonTextColor} label="Sign Up" /></Link>
-    </div>
-  );
-}
 
-const Logged = () => {
-  return(
-    <div>
-      <Link to="/edit-profile"><FlatButton style={styles.buttonTextColor} label="Edit Profile" /></Link>
-      <Link to="/sign-out"><FlatButton style={styles.buttonTextColor} label="Sign Out" /></Link>
-    </div>
-  );
-};
 
 class Header extends Component {
   constructor(props) {
@@ -70,6 +55,7 @@ class Header extends Component {
       logged: false,
     };
   }
+
 
   handleSearchBoxOnChange = (e) => {
     const searchText = e.currentTarget.value;
@@ -84,11 +70,34 @@ class Header extends Component {
     // 1. params
     // routing
     // redirect to url/restaurants/search?=searchText
-
     this.props.history.push({pathname: '/search', search: qs.stringify({query: this.state.searchText})});
   };
 
+  logOut = () => {
+    window.localStorage.clear();
+    this.props.dispatch(userLogout());
+    this.props.history.push("/");
+  }
+
   render(){
+    const Login = () => {
+      return(
+        <div>
+          <Link to="/users/sign_in"><FlatButton style={styles.buttonTextColor} label="Sign In" /></Link>
+          <Link to="/users/sign-up"><FlatButton style={styles.buttonTextColor} label="Sign Up" /></Link>
+        </div>
+      );
+    }
+
+    const Logged = () => {
+      return(
+        <div>
+          <Link to="/edit-profile"><FlatButton style={styles.buttonTextColor} label="Edit Profile" /></Link>
+          <Link to="/sign-out"><FlatButton style={styles.buttonTextColor} label="Sign Out" onClick={ this.logOut }/></Link>
+        </div>
+      );
+    };
+
     return(
       <div style={styles.container}>
         <Toolbar style={styles.toolbar}>
@@ -113,7 +122,7 @@ class Header extends Component {
           </ToolbarGroup>
 
           <ToolbarGroup lastChild={true}>
-            {this.state.logged ? <Logged /> : <Login />}
+            {(this.props.currentuser.token !== null) ? <Logged /> : <Login />}
           </ToolbarGroup>
         </Toolbar>
         <div style={styles.content}>
@@ -128,6 +137,7 @@ class Header extends Component {
 
 const maptStateToProps = (state) => ({
   restaurants: state.restaurants,
+  currentuser: state.currentuser
 });
 
 export default connect(maptStateToProps)(withRouter(Header));

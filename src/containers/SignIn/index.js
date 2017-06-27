@@ -6,6 +6,8 @@ import { Checkbox } from 'material-ui';
 import UnCheckedIcon from 'material-ui/svg-icons/toggle/check-box-outline-blank';
 import CheckedIcon from 'material-ui/svg-icons/toggle/check-box';
 import {connect} from 'react-redux';
+import Paper from 'material-ui/Paper';
+import { checkLogin } from '../../store/actions/index'
 
 class SignIn extends Component {
 
@@ -14,9 +16,7 @@ class SignIn extends Component {
 
     this.state={
       email: '',
-      pwd: '',
-      checked: false,
-      logged: false
+      password: ''
     }
   }
 
@@ -31,58 +31,48 @@ class SignIn extends Component {
   }
 
   pwdHandler = (event) => {
-    const pwd = event.currentTarget.value;
-    this.setState({pwd});
+    const password = event.currentTarget.value;
+    this.setState({password});
   }
 
   handleSignIn = () => {
-    for (let key in this.props.users) {
-      // console.log(this.props.users[key]);
-      if (this.props.users[key].email === this.state.email &&
-        this.props.users[key].password === this.state.pwd) {
-        this.setState({logged: true});
-        this.props.router.push("/");
-      }
-      else {
-        console.log("wrong username or password...");
-      }
-    }
+    if (this.props.dispatch(checkLogin(this.state))) this.props.router.push("/");
   }
-
 
   render() {
     return (
       <div className="SignIn-form">
-        <h2>Sign in</h2>
-        <TextField
-          className="Email-input"
-          type="email"
-          floatingLabelText="Your email:"
-          fullWidth={true}
-          onChange={this.emailHandler}
-        />
-        <TextField className="Password-Input"
+        <Paper style={{paddingBottom: '10px', paddingTop: '10px', paddingLeft: '10px', paddingRight: "10px"}} zDepth={1}>
+          <h2>Sign in</h2>
+          <TextField
+            className="Email-input"
+            type="email"
+            floatingLabelText="Your email:"
+            fullWidth={true}
+            onChange={this.emailHandler}
+          />
+          <TextField className="Password-Input"
+            floatingLabelText="Password"
+            type="password"
+            fullWidth={true}
+            onChange={this.pwdHandler}
+          />
+          <Checkbox
+          uncheckedIcon={<UnCheckedIcon style={{fill: "#00bcd4"}} />}
+          checkedIcon={<CheckedIcon style={{fill: "	#00bcd4"}} />}
+          label="Remember me"
+          onCheck={this.checkBoxHandler}
+          />
 
-          floatingLabelText="Password"
-          type="password"
-          fullWidth={true}
-          onChange={this.pwdHandler}
-        />
-        <Checkbox
-        uncheckedIcon={<UnCheckedIcon style={{fill: "#00bcd4"}} />}
-        checkedIcon={<CheckedIcon style={{fill: "	#00bcd4"}} />}
-        label="Remember me"
-        onCheck={this.checkBoxHandler}
-        />
-
-        <br/>
-        <RaisedButton
-          primary={true}
-          label="Sign in"
-          onTouchTap={this.handleSignIn}
-        />
-      <p>Sign up</p>
-        <p>Forgot your password?</p>
+          <br/>
+          <RaisedButton
+            primary={true}
+            label="Sign in"
+            onTouchTap={this.handleSignIn}
+          />
+          <p>Sign up</p>
+          <p>Forgot your password?</p>
+        </Paper>
       </div>
     );
   }
