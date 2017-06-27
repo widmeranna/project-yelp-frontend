@@ -15,8 +15,20 @@ import Search from './routes/Search';
 import Home from './routes/Home';
 import store from './store';
 import SignIn from './routes/SignIn';
+import { loginCurrentUser } from './store/actions/index'
 
 injectTapEventPlugin();
+
+function getToken() {
+  const StorageCurrentUser = {
+    token: localStorage.getItem('userToken'),
+    username: localStorage.getItem('userEmail')
+  }
+  const action = loginCurrentUser(StorageCurrentUser);
+  store.dispatch(action);
+}
+
+getToken();
 
 ReactDOM.render(
   <Provider store={ store }>

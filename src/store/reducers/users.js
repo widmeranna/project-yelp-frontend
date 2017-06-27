@@ -5,6 +5,7 @@ const initialState = {
 		lastName: 'Mühlebach',
 		email: 'simona@gmail.com',
 		password: 'simona',
+		token: '12345789qweasdzxc'
 	},
   2: {
 		id: 2,
@@ -12,6 +13,7 @@ const initialState = {
 		lastName: 'Bugra',
 		email: 'satuk@gmail.com',
 		password: 'satuk',
+		token: '12345789qweasdzxc'
 	},
   3: {
     id: 3,
@@ -19,7 +21,16 @@ const initialState = {
     lastName: 'Widmer',
     email: 'anna@gmail.com',
     password: 'anna',
+		token: '12345789qweasdzxc'
   },
+	4: {
+		id: 4,
+		firstName: 'Miguel',
+		lastName: 'Perello',
+		email: 'miguel@gmail.com',
+		password: 'miguel',
+		token: '12345789qweasdzxc'
+	},
 };
 
 const users = (state=initialState, action) => {
